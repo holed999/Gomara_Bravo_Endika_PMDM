@@ -1,0 +1,42 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Cuestionario
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let pregunta of preguntas; let i = index">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="pregunta.logotipo"></ion-img>
+      </ion-thumbnail>
+      
+      <ion-label>
+        <div class="badges-info">
+          <ion-badge [color]="pregunta.acierto ? 'success' : 'medium'" class="badge-small">
+            {{ pregunta.acierto ? '✓' : '?' }}
+          </ion-badge>
+          <ion-badge color="primary" class="badge-small">
+            {{ pregunta.intentos }}
+          </ion-badge>
+          <ion-badge color="danger" class="badge-small">
+            {{ pregunta.respuestasIncorrectas.length }}
+          </ion-badge>
+        </div>
+      </ion-label>
+      
+      <ion-button slot="end" (click)="responder(pregunta)">
+        RESPONDER
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div class="footer-button">
+    <ion-button expand="block" (click)="guardar()">
+      GUARDAR CUESTIONARIO
+    </ion-button>
+  </div>
+
+</ion-content>
