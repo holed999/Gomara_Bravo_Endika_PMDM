@@ -17,15 +17,12 @@ export class HomePage implements OnInit {
   constructor(private cuestionarioService: CuestionarioService) {}
 
   async ngOnInit() {
-    // Cargar las preguntas al iniciar
     await this.cargarPreguntas();
   }
 
   async cargarPreguntas() {
-    // Esperar a que se carguen las preguntas
     await this.cuestionarioService.recuperarPreguntas();
     
-    // Pequeño delay para asegurar que los datos estén listos
     setTimeout(() => {
       this.preguntas = this.cuestionarioService.getPreguntas();
       console.log('Preguntas cargadas en home:', this.preguntas);
@@ -36,17 +33,14 @@ export class HomePage implements OnInit {
     }, 100);
   }
 
-  // Método para gestionar el onclick de RESPONDER
   async responder(pregunta: IPregunta) {
     if (pregunta) {
       await this.cuestionarioService.mostrarAlerta(pregunta);
-      // Actualizar la vista después de responder
       this.preguntas = this.cuestionarioService.getPreguntas();
       this.preguntaActual = this.preguntas[this.indicePreguntaActual];
     }
   }
 
-  // Método para gestionar el onclick de Guardar
   guardar() {
     this.cuestionarioService.guardarPreguntas();
   }
