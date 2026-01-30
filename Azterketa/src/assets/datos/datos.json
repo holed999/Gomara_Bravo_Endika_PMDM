@@ -1,0 +1,18 @@
+[
+    {
+      "logotipo": "assets/icon/volkswagen.jpg",
+      "respuesta": "Wolkswagen"
+    },
+    {
+        "logotipo": "assets/icon/apple.jpg",
+        "respuesta": "Apple"
+    },
+    {
+        "logotipo": "assets/icon/Shell.jpg",
+        "respuesta": "Shell"
+    },
+    {
+        "logotipo": "assets/icon/starbucks.jpg",
+        "respuesta": "Starbucks"
+    }
+  ]
